@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity //this is the schema of how student table look like
 @Table
+@Getter
 public class Student {
 
     @Id // act as a primary key
