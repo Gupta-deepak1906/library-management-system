@@ -1,44 +1,42 @@
 package com.acciojob.librarymanagementsystem.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import jakarta.persistence.*;
+//import lombok.Getter;
 
 @Entity //this is the schema of how student table look like
 @Table
-@Getter
+//@Getter
+//@Setter
+//@NoArgsConstructor //this is like a default constructor
+//@AllArgsConstructor //this is like a constructor havinf all the argrument
 public class Student {
 
     @Id // act as a primary key
-    private int studentId;
-    private String studentNAme;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private int rollId;
+    private String name;
     private Integer age;
-    private String course;
+    private String branch;
+    private double cgpa;
 
-    private String emails;
+    private String emailId;
 
-    public String getEmails() {
-        return emails;
+    public int getRollId() {
+        return rollId;
     }
 
-    public void setEmails(String emails) {
-        this.emails = emails;
+    public void setRollId(int rollId) {
+        this.rollId = rollId;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public String getName() {
+        return name;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentNAme() {
-        return studentNAme;
-    }
-
-    public void setStudentNAme(String studentNAme) {
-        this.studentNAme = studentNAme;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {
@@ -49,11 +47,36 @@ public class Student {
         this.age = age;
     }
 
-    public String getCourse() {
-        return course;
+    public String getBranch() {
+        return branch;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public double getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(double cgpa) {
+        this.cgpa = cgpa;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public Student(int rollId, String name, Integer age, String branch, double cgpa, String emailId) {
+        this.rollId = rollId;
+        this.name = name;
+        this.age = age;
+        this.branch = branch;
+        this.cgpa = cgpa;
+        this.emailId = emailId;
     }
 }
